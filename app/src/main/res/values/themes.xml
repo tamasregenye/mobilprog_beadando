@@ -5,5 +5,13 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="background">
+        <item name="android:background">@color/lightPurple</item>
+    </style>
+
+    <style name="button_background">
+        <item name="android:background">@color/darkGrey</item>
+    </style>
+
     <style name="Theme.Beadando" parent="Base.Theme.Beadando" />
 </resources>
