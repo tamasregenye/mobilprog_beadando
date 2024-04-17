@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Beadando" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -9,7 +9,11 @@
         <item name="android:background">@color/lightPurple</item>
     </style>
 
-    <style name="button_background">
+    <style name="background_navigation">
+        <item name="android:background">@color/violet</item>
+    </style>
+
+    <style name="background_button">
         <item name="android:background">@color/darkGrey</item>
     </style>
 

@@ -40,20 +40,22 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                style="@style/button_background">
+                style="@style/background_button"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_playgame">
+                    android:src="@drawable/ic_playgame"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Play"
+                    android:text="@string/play"
                     android:textColor="@color/orange"
                     android:textSize="22sp"
                     android:textStyle="bold">
@@ -79,19 +81,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                style="@style/button_background">
+                style="@style/background_button">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_multiplayer"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Multiplayer"
+                    android:text="@string/multiplayer"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
@@ -118,19 +121,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                style="@style/button_background">
+                style="@style/background_button">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_profiles"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profiles"
+                    android:text="@string/profiles"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
@@ -157,19 +161,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                style="@style/button_background">
+                style="@style/background_button">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_stats"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Statistics"
+                    android:text="@string/statistics"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
@@ -196,19 +201,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                style="@style/button_background">
+                style="@style/background_button">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/ic_credits"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Credits"
+                    android:text="@string/credits"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
@@ -235,13 +241,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                style="@style/button_background">
+                style="@style/background_button">
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_logout">
+                    android:src="@drawable/ic_logout"
+                    android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
