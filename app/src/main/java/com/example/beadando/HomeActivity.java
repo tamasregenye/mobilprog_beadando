@@ -7,9 +7,13 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
     CardView buttonPlay;
@@ -25,7 +29,9 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPreferences = getSharedPreferences("MODE", MODE_PRIVATE);
         super.onCreate(savedInstanceState);
+        LanguageManager.loadLocale(this); // Load the saved language preference
         setContentView(R.layout.activity_main);
 
         initComponents();
@@ -42,7 +48,6 @@ public class HomeActivity extends AppCompatActivity {
         imageView_mode= findViewById(R.id.imageView_mode);
         textView_mode= findViewById(R.id.textView_mode);
 
-        sharedPreferences = getSharedPreferences("MODE", MODE_PRIVATE);
         boolean isNightMode = sharedPreferences.getBoolean("night", false); //default is light mode
         setNightMode(isNightMode);
         updateUI(isNightMode);
@@ -51,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setOnclickListeners(){
         buttonCredits.setOnClickListener(v -> getCredits());
         buttonModes.setOnClickListener(v -> setMode());
+        buttonLanguage.setOnClickListener(v -> changeLanguage());
     }
     private void getCredits(){
         startActivityAndFinishCurrent(this, CreditsActivity.class);
@@ -63,6 +69,12 @@ public class HomeActivity extends AppCompatActivity {
         editor.apply();
         updateUI(newMode);
     }
+
+    private void changeLanguage() {
+        LanguageManager.switchToNextLanguage(this);
+        recreate();
+    }
+
 
     private void updateUI(boolean isNightMode) {
         if (isNightMode) {
