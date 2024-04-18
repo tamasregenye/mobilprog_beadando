@@ -105,7 +105,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button_profiles"
+            android:id="@+id/button_language"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -126,7 +126,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_profiles"
+                    android:src="@drawable/ic_language"
                     android:layout_gravity="center_horizontal"
                     android:importantForAccessibility="no">
                 </ImageView>
@@ -134,7 +134,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profiles"
+                    android:text="@string/language_en"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
@@ -145,7 +145,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button_stats"
+            android:id="@+id/button_modes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -164,17 +164,19 @@
                 style="@style/background_button">
 
                 <ImageView
+                    android:id="@+id/imageView_mode"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_stats"
+                    android:src="@drawable/ic_light_mode"
                     android:layout_gravity="center_horizontal"
                     android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/textView_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/statistics"
+                    android:text="@string/mode_light"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"

@@ -4,8 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF7708</color>
     <color name="violet">#F1D6F1</color>
+    <color name="darkViolet">#735973</color>
     <color name="grey">#8F8F8F</color>
     <color name="darkGrey">#262F39</color>
     <color name="purple">#8A71CF</color>
     <color name="lightPurple">#A28FD6</color>
+    <color name="darkPurple">#483187</color>
 </resources>

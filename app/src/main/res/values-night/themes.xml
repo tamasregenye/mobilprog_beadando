@@ -1,7 +1,36 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Beadando" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+    <style name="Theme.Beadando" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
+    <!--Dark mode-->
+
+    <!-- Background colors -->
+
+    <style name="background">
+        <item name="android:background">@color/darkPurple</item>
+    </style>
+
+    <style name="background_submenu">
+        <item name="android:background">@color/darkGrey</item>
+    </style>
+
+    <style name="background_navigation">
+        <item name="android:background">@color/darkViolet</item>
+    </style>
+
+    <style name="background_section">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <!-- Button colors -->
+
+    <style name="background_button">
+        <item name="android:background">@color/darkGrey</item>
+    </style>
+
+    <!-- Text colors -->
+
+    <style name="text_navigation">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
