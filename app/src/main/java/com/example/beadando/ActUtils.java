@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 public class ActUtils {
 
-    private static boolean nightMode;
+
 
     private static Toast currentToast;
 
@@ -39,13 +39,5 @@ public class ActUtils {
         CancelToast();
         currentToast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
         currentToast.show();
-    }
-
-    public static boolean isNightMode() {
-        return nightMode;
-    }
-
-    public static void setNightMode(boolean nightMode) {
-        ActUtils.nightMode = nightMode;
     }
 }

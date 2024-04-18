@@ -8,10 +8,12 @@
     <string name="github_profile">Github profil</string>
     <string name="version_number">verzó 1.0.0</string>
     <string name="play">Játék</string>
-    <string name="multiplayer">Multiplayer</string>
+    <string name="mode_auto">Auto mód</string>
+    <string name="auto_mode_enabled">be</string>
+    <string name="auto_mode_disabled">ki</string>
     <string name="language">Nyelv váltása</string>
     <string name="mode_light">Világos mód</string>
     <string name="mode_dark">Sötét mód</string>
-    <string name="mode_auto">Auto mód</string>
     <string name="back_to_main_menu">Vissza a főmenübe</string>
+    <string name="warning_auto_mode">Nem válthat manuálisan a témák között, amíg az automatikus mód be van kapcsolva!</string>
 </resources>

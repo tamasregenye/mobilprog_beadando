@@ -8,10 +8,12 @@
     <string name="github_profile">Github Profile</string>
     <string name="version_number">Version 1.0.0</string>
     <string name="play">Play</string>
-    <string name="multiplayer">Multiplayer</string>
+    <string name="mode_auto">Auto mode</string>
+    <string name="auto_mode_enabled">on</string>
+    <string name="auto_mode_disabled">off</string>
     <string name="language">Change lang</string>
     <string name="mode_light">Light mode</string>
     <string name="mode_dark">Dark mode</string>
-    <string name="mode_auto">Auto mode</string>
     <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="warning_auto_mode">You cannot change themes manually if auto mode is on!</string>
 </resources>

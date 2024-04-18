@@ -1,8 +1,8 @@
 package com.example.beadando;
+
 import static com.example.beadando.ActUtils.*;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

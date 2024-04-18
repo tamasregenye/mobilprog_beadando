@@ -65,7 +65,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button_multiplayer"
+            android:id="@+id/button_auto_mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -86,15 +86,16 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/ic_multiplayer"
+                    android:src="@drawable/ic_auto_mode"
                     android:layout_gravity="center_horizontal"
                     android:importantForAccessibility="no">
                 </ImageView>
 
                 <TextView
+                    android:id="@+id/textView_auto_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/multiplayer"
+                    android:text="@string/mode_auto"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
