@@ -4,6 +4,8 @@ import static com.example.beadando.ActUtils.startActivityAndFinishCurrent;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -15,6 +17,8 @@ public class PlayActivity extends AppCompatActivity {
     RelativeLayout playLayout;
     boolean lightsOn = false;
     long lightsOutTime = 0;
+    long startedGameTime = 0;
+    ImageView light1, light2, light3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,10 @@ public class PlayActivity extends AppCompatActivity {
     private void initComponents() {
         mainMenuBtn = findViewById(R.id.button_mainmenu);
         playLayout = findViewById(R.id.layout_play);
+
+        light1 = findViewById(R.id.light1);
+        light2 = findViewById(R.id.light2);
+        light3 = findViewById(R.id.light3);
     }
 
     private void setOnclickListeners() {
@@ -42,35 +50,47 @@ public class PlayActivity extends AppCompatActivity {
 
     private void clickOnLayout() {
         if (lightsOn) {
-            long responseTime = System.currentTimeMillis() - lightsOutTime;
-            // Calculate and display response time
-            lightsOn = false;
-            // Start the next round or end the game
+            //user clicked when lights were on, game over
+
+
         } else {
-            // User clicked when lights were already off, ignore
+            // User clicked when lights were already off, measure reaction time
+            long reactionTime = System.currentTimeMillis() - lightsOutTime;
+
         }
     }
 
     private void startGame() {
-        // Start the game
-        // Turn the lights on
-        setLightsOn();
-        // Set a random delay to turn the lights off
-        new Handler().postDelayed(this::setLightsOff, getRandomDelay());
-    }
-
-    private void setLightsOn() {
-        // Code to turn the lights on
+        startedGameTime = System.currentTimeMillis();
+        // Start the game by turning on the first light
+        new Handler().postDelayed(() -> setLightOn(light1), 1000); // 1 second delay
+        // Schedule turning on the next light with a delay
+        new Handler().postDelayed(() -> setLightOn(light2), 2000); // 2 second delay
+        new Handler().postDelayed(() -> setLightOn(light3), 3000); // 3 seconds delay
+        // Schedule turning the lights off after a random delay
+        new Handler().postDelayed(this::setLightsOff, getRandomDelay() + 3000); // 3 seconds delay
         lightsOn = true;
     }
 
+    private void setLightOn(ImageView light) {
+        // Turn on the specified light
+        light.setImageResource(R.drawable.ic_light_on);
+    }
+
     private void setLightsOff() {
-        // Code to turn the lights off
-        lightsOutTime = System.currentTimeMillis();
+        // If all three lights are on, set them off and start the timer
+        if (lightsOn) {
+            light1.setImageResource(R.drawable.ic_light_off);
+            light2.setImageResource(R.drawable.ic_light_off);
+            light3.setImageResource(R.drawable.ic_light_off);
+            lightsOutTime = System.currentTimeMillis();
+            Log.d("Random", "Lights out after " + (lightsOutTime-startedGameTime) + " ms");
+            lightsOn = false;
+        }
     }
 
     private long getRandomDelay() {
-        // Generate a random delay between 1 and 3 seconds
-        return (long) (1000 + Math.random() * 2000);
+        // Generate a random delay between 0 and 5 seconds
+        return (long) (0 + Math.random() * 5000);
     }
 }
