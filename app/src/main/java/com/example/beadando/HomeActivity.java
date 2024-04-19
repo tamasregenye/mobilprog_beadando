@@ -60,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setOnclickListeners(){
+        buttonPlay.setOnClickListener(v -> play());
         buttonCredits.setOnClickListener(v -> getCredits());
         buttonAutoMode.setOnClickListener(v -> setAutoMode());
         buttonModes.setOnClickListener(v -> setMode());
@@ -71,24 +72,34 @@ public class HomeActivity extends AppCompatActivity {
         SensorManagerHelper.unregisterSensor();
         finishAffinity();
         System.exit(0);
+        Log.d("Button", "App exited");
+    }
+
+    private void play(){
+        startActivityAndFinishCurrent(this, PlayActivity.class);
+        Log.d("Button", "Play");
     }
 
     private void getCredits(){
         startActivityAndFinishCurrent(this, CreditsActivity.class);
+        Log.d("Button", "Credits opened");
     }
 
     private void setAutoMode() {
         ThemeManager.toggleAutoMode(this);
         updateUI();
+        Log.d("Button", "Auto mode toggled");
     }
     private void setMode() {
         ThemeManager.toggleTheme(this); // Toggle between light and dark mode
         updateUI();
+        Log.d("Button", "Mode toggled");
     }
 
     private void changeLanguage() {
         LanguageManager.switchToNextLanguage(this);
         updateUI();
+        Log.d("Button", "Language changed");
     }
 
 
