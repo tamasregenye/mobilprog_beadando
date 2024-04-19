@@ -2,6 +2,8 @@ package com.example.beadando;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class ThemeManager {
@@ -12,9 +14,9 @@ public class ThemeManager {
 
     public static void applyTheme(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("MODE", Context.MODE_PRIVATE);
-        boolean isNightMode = sharedPreferences.getBoolean(THEME_PREF_KEY, false);
+        nightMode = sharedPreferences.getBoolean(THEME_PREF_KEY, false);
         autoMode = sharedPreferences.getBoolean(AUTO_MODE_PREF_KEY, false);
-        setTheme(context, isNightMode);
+        setTheme(context, nightMode);
     }
 
     public static void toggleTheme(Context context) {
@@ -26,8 +28,8 @@ public class ThemeManager {
             boolean currentTheme = sharedPreferences.getBoolean(THEME_PREF_KEY, false);
             boolean newTheme = !currentTheme;
             setTheme(context, newTheme);
-            saveThemePreference(context, newTheme);
         }
+        Log.d("Theme", "Current theme: " + (nightMode ? "Night" : "Day"));
     }
 
     public static void toggleAutoMode(Context context) {
@@ -35,9 +37,13 @@ public class ThemeManager {
         setAutoMode(autoMode);
         if (autoMode) {
             // set themes based on sensor data
-            SensorManagerHelper.registerSensorListener(context);
+            SensorManagerHelper.registerSensor(context);
+        }
+        else {
+            SensorManagerHelper.unregisterSensor();
         }
         saveAutoModePreference(context, autoMode);
+        Log.d("AutoMode", "Auto mode: " + autoMode);
     }
 
     protected static void setTheme(Context context, boolean isNightMode) {
@@ -75,6 +81,11 @@ public class ThemeManager {
 
     public static void setAutoMode(boolean autoMode) {
         ThemeManager.autoMode = autoMode;
+    }
+
+    public static void logTheme() {
+        Log.d("Theme", "Current theme: " + (nightMode ? "Night" : "Day"));
+        Log.d("Theme", "Auto mode: " + (autoMode ? "on" : "off"));
     }
 
 }

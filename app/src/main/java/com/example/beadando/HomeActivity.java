@@ -5,7 +5,10 @@ import static com.example.beadando.ThemeManager.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +29,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         LanguageManager.loadLocale(this); // Load the saved language preference
 
+        ThemeManager.applyTheme(this);
+        logTheme();
+
+        if(isAutoMode()) {
+            SensorManagerHelper.registerSensor(this);
+        }
+        else {
+            SensorManagerHelper.unregisterSensor();
+        }
 
         setContentView(R.layout.activity_main);
-        ThemeManager.applyTheme(this);  // Apply the saved theme preference
-
-
         initComponents();
         updateUI();
         setOnclickListeners();
@@ -59,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void exitApp() {
-        SensorManagerHelper.unregisterSensorListener();
+        SensorManagerHelper.unregisterSensor();
         finishAffinity();
         System.exit(0);
     }
@@ -83,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n") // Suppress the warning for hardcoded strings
     public void updateUI() {
         if (isAutoMode())
             textview_auto_mode.setText(getString(R.string.mode_auto) + " " + getString(R.string.auto_mode_enabled));
