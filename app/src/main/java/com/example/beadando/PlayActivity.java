@@ -24,6 +24,7 @@ public class PlayActivity extends AppCompatActivity {
     long lightsOutTime = 0;
     long clickOnTime = 0;
     ImageView light1, light2, light3;
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,16 +85,33 @@ public class PlayActivity extends AppCompatActivity {
 
     private void startGame() {
         isGameActive = true;
-        //set gameOverLayout invisible
         gameOverLayout.setVisibility(LinearLayout.INVISIBLE);
+        mHandler.removeCallbacksAndMessages(null);
+        setLightsOff();
 
-        // Start the game by turning on the first light
-        new Handler().postDelayed(() -> setLightOn(light1), 1000); // 1 second delay
-        // Schedule turning on the next light with a delay
-        new Handler().postDelayed(() -> setLightOn(light2), 2000); // 2 second delay
-        new Handler().postDelayed(() -> setLightOn(light3), 3000); // 3 seconds delay
+        // Start the game by turning on each light after a second delay
+        mHandler.postDelayed(() -> {
+            if (isGameActive) {
+                setLightOn(light1);
+            }
+        }, 1000);
+        mHandler.postDelayed(() -> {
+            if (isGameActive) {
+                setLightOn(light2);
+            }
+        }, 2000);
+        mHandler.postDelayed(() -> {
+            if (isGameActive) {
+                setLightOn(light3);
+            }
+        }, 3000);
+
         // Schedule turning the lights off after a random delay
-        new Handler().postDelayed(this::setLightsOff, getRandomDelay() + 3000); // 3 seconds delay
+        mHandler.postDelayed(() -> {
+            if (isGameActive) {
+                setLightsOff();
+            }
+        }, getRandomDelay() + 3000);
         lightsOn = true;
     }
 
@@ -103,18 +121,15 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void setLightsOff() {
-        // If all three lights are on, set them off and start the timer
-        if (lightsOn) {
-            light1.setImageResource(R.drawable.ic_light_off);
-            light2.setImageResource(R.drawable.ic_light_off);
-            light3.setImageResource(R.drawable.ic_light_off);
-            lightsOutTime = System.currentTimeMillis();
-            lightsOn = false;
-        }
+        light1.setImageResource(R.drawable.ic_light_off);
+        light2.setImageResource(R.drawable.ic_light_off);
+        light3.setImageResource(R.drawable.ic_light_off);
+        lightsOutTime = System.currentTimeMillis();
+        lightsOn = false;
     }
 
     private long getRandomDelay() {
-        // Generate a random delay between 0 and 5 seconds
-        return (long) (0 + Math.random() * 5000);
+        // Generate a random delay between 0.1 and 5 seconds
+        return (long) (100 + Math.random() * 5000);
     }
 }
