@@ -8,6 +8,9 @@
     <string name="github_profile">Github profil</string>
     <string name="version_number">verzó 1.0.0</string>
     <string name="play">Játék</string>
+    <string name="reactiontime">Reakcióidő</string>
+    <string name="early">Várd meg míg kialszanak a fények!</string>
+    <string name="play_again">Új játék</string>
     <string name="mode_auto">Auto mód</string>
     <string name="auto_mode_enabled">be</string>
     <string name="auto_mode_disabled">ki</string>

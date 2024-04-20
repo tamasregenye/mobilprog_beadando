@@ -8,6 +8,9 @@
     <string name="github_profile">Github Profile</string>
     <string name="version_number">Version 1.0.0</string>
     <string name="play">Play</string>
+    <string name="reactiontime">Reaction time</string>
+    <string name="early">Wait until all lights are off!</string>
+    <string name="play_again">Play again</string>
     <string name="mode_auto">Auto mode</string>
     <string name="auto_mode_enabled">on</string>
     <string name="auto_mode_disabled">off</string>

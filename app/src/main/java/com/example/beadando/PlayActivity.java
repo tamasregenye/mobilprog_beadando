@@ -5,19 +5,24 @@ import static com.example.beadando.ActUtils.startActivityAndFinishCurrent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PlayActivity extends AppCompatActivity {
 
     LinearLayout mainMenuBtn;
-    RelativeLayout playLayout;
+    RelativeLayout playLayout, gameOverLayout;
+    TextView textviewGameOver;
+    Button playAgainBtn;
     boolean lightsOn = false;
+    boolean isGameActive = false;
     long lightsOutTime = 0;
-    long startedGameTime = 0;
+    long clickOnTime = 0;
     ImageView light1, light2, light3;
 
     @Override
@@ -32,7 +37,11 @@ public class PlayActivity extends AppCompatActivity {
 
     private void initComponents() {
         mainMenuBtn = findViewById(R.id.button_mainmenu);
+        playAgainBtn = findViewById(R.id.button_play_again);
         playLayout = findViewById(R.id.layout_play);
+        gameOverLayout = findViewById(R.id.layout_gameover);
+
+        textviewGameOver = findViewById(R.id.textview_gameover);
 
         light1 = findViewById(R.id.light1);
         light2 = findViewById(R.id.light2);
@@ -42,6 +51,7 @@ public class PlayActivity extends AppCompatActivity {
     private void setOnclickListeners() {
         mainMenuBtn.setOnClickListener(v -> goBackToMainMenu());
         playLayout.setOnClickListener(v -> clickOnLayout());
+        playAgainBtn.setOnClickListener(v -> startGame());
     }
 
     private void goBackToMainMenu() {
@@ -49,19 +59,34 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void clickOnLayout() {
-        if (lightsOn) {
-            //user clicked when lights were on, game over
+        if(isGameActive)
+        {
+            if (lightsOn) {
+                //user clicked when lights were on, game over
+                //wait until a
+                Log.d("ReactionTime", "Too early!");
+                textviewGameOver.setText(getString(R.string.early));
+                gameOverLayout.setVisibility(LinearLayout.VISIBLE);
 
+            } else {
+                // User clicked when lights were already off, measure reaction time
+                clickOnTime = System.currentTimeMillis();
+                long reactionTime = clickOnTime - lightsOutTime;
+                Log.d("ReactionTime", "Lights out after " + reactionTime + " ms");
+                textviewGameOver.setText(getString(R.string.reactiontime) + ": "+reactionTime+" ms");
+                gameOverLayout.setVisibility(LinearLayout.VISIBLE);
 
-        } else {
-            // User clicked when lights were already off, measure reaction time
-            long reactionTime = System.currentTimeMillis() - lightsOutTime;
-
+            }
+            isGameActive = false;
         }
+
     }
 
     private void startGame() {
-        startedGameTime = System.currentTimeMillis();
+        isGameActive = true;
+        //set gameOverLayout invisible
+        gameOverLayout.setVisibility(LinearLayout.INVISIBLE);
+
         // Start the game by turning on the first light
         new Handler().postDelayed(() -> setLightOn(light1), 1000); // 1 second delay
         // Schedule turning on the next light with a delay
@@ -84,7 +109,6 @@ public class PlayActivity extends AppCompatActivity {
             light2.setImageResource(R.drawable.ic_light_off);
             light3.setImageResource(R.drawable.ic_light_off);
             lightsOutTime = System.currentTimeMillis();
-            Log.d("Random", "Lights out after " + (lightsOutTime-startedGameTime) + " ms");
             lightsOn = false;
         }
     }

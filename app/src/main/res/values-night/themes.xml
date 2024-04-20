@@ -33,4 +33,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="text_game">
+        <item name="android:textColor">@color/violet</item>
+    </style>
+
 </resources>

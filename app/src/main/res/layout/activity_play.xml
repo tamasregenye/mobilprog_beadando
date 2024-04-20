@@ -65,10 +65,12 @@
         android:paddingVertical="15dp">
 
         <GridLayout
+            android:id="@+id/gridlayout_play"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:columnCount="3"
-            android:rowCount="1">
+            android:rowCount="1"
+            android:paddingVertical="20dp">
 
             <ImageView
                 android:id="@+id/light1"
@@ -104,6 +106,38 @@
                 android:layout_columnWeight="1"/>
 
         </GridLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_gameover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridlayout_play">
+
+            <TextView
+                android:id="@+id/textview_gameover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/reactiontime"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                style="@style/text_game"
+                android:layout_marginVertical="10dp">
+            </TextView>
+
+            <Button
+                android:id="@+id/button_play_again"
+                android:layout_below="@+id/textview_gameover"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/play_again"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </Button>
+
+        </RelativeLayout>
 
 
     </RelativeLayout>

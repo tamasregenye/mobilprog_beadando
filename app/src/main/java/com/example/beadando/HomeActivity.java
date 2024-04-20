@@ -98,6 +98,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void changeLanguage() {
         LanguageManager.switchToNextLanguage(this);
+        recreate();
         updateUI();
         Log.d("Button", "Language changed");
     }
