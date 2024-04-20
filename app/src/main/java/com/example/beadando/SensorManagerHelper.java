@@ -14,6 +14,7 @@ public class SensorManagerHelper implements SensorEventListener {
     private static Context mContext;
     private static float lightValue;
     private static SensorEventListener sensorEventListener;
+    private static boolean isSensorRegistered = false;
 
     public static void registerSensor(Context context) {
         mContext = context;
@@ -21,12 +22,15 @@ public class SensorManagerHelper implements SensorEventListener {
         Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         if (lightSensor != null) {
             sensorEventListener = new SensorManagerHelper(); // Store the instance of SensorEventListener
-            sensorManager.registerListener(sensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(sensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_UI);
+            isSensorRegistered = true;
         }
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        if (!isSensorRegistered) return;    //ignore sensor events if the sensor is not registered
+
         LanguageManager.loadLocale(mContext); // Load the saved language preference
         if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
             lightValue = event.values[0];
@@ -49,8 +53,9 @@ public class SensorManagerHelper implements SensorEventListener {
 
     public static void unregisterSensor() {
         if (sensorManager != null && sensorEventListener != null) {
-            sensorManager.unregisterListener(sensorEventListener); // Unregister the listener using the stored instance
-            sensorEventListener = null; // Clear the reference to the listener
+            sensorManager.unregisterListener(sensorEventListener);
+            sensorEventListener = null;
+            isSensorRegistered = false;
         }
     }
 
