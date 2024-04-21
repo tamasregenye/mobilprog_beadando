@@ -1,9 +1,42 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.Beadando" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.Beadando" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
-    <style name="Theme.Beadando" parent="Base.Theme.Beadando" />
+    <!--Light mode-->
+
+    <!-- Background colors -->
+
+    <style name="background">
+        <item name="android:background">@color/lightPurple</item>
+    </style>
+
+    <style name="background_submenu">
+        <item name="android:background">@color/lightPurple</item>
+    </style>
+
+    <style name="background_navigation">
+        <item name="android:background">@color/violet</item>
+    </style>
+
+    <style name="background_section">
+        <item name="android:background">@color/darkGrey</item>
+    </style>
+
+    <!-- Button colors -->
+
+    <style name="background_button">
+        <item name="android:background">@color/darkGrey</item>
+    </style>
+
+    <!-- Text colors -->
+    <style name="text_navigation">
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <style name="text_game">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 </resources>

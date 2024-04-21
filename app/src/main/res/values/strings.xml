@@ -1,3 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">beadando</string>
+    <string name="app_name" translatable="false">ReAction</string>
+    <string name="logout">Logout</string>
+    <string name="credits">Credits</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="developer_name">Created by Tamás Regenye</string>
+    <string name="github_profile">Github Profile</string>
+    <string name="version_number">Version 1.0.0</string>
+    <string name="play">Play</string>
+    <string name="reactiontime">Reaction time</string>
+    <string name="early">Wait until all lights are off!</string>
+    <string name="play_again">Play again</string>
+    <string name="mode_auto">Auto mode</string>
+    <string name="auto_mode_enabled">on</string>
+    <string name="auto_mode_disabled">off</string>
+    <string name="language">Language</string>
+    <string name="mode_light">Light mode</string>
+    <string name="mode_dark">Dark mode</string>
+    <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="warning_auto_mode">You cannot change themes manually if auto mode is on!</string>
+    <string name="feedback_excellent">Are you even human?</string>
+    <string name="feedback_good">You have great reflexes!</string>
+    <string name="feedback_average">Average</string>
+    <string name="bad">That\'s… bad</string>
+    <string name="feedback_verybad">I hope you\'re just drunk…</string>
 </resources>
