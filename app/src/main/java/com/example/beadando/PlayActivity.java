@@ -2,6 +2,7 @@ package com.example.beadando;
 
 import static com.example.beadando.ActUtils.startActivityAndFinishCurrent;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -24,7 +25,7 @@ public class PlayActivity extends AppCompatActivity {
     long lightsOutTime = 0;
     long clickOnTime = 0;
     ImageView light1, light2, light3;
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class PlayActivity extends AppCompatActivity {
 
         initComponents();
         setOnclickListeners();
+        startGame();
     }
 
     private void initComponents() {
@@ -58,6 +60,7 @@ public class PlayActivity extends AppCompatActivity {
         startActivityAndFinishCurrent(this, HomeActivity.class);
     }
 
+    @SuppressLint("SetTextI18n")
     private void clickOnLayout() {
         if(isGameActive)
         {
