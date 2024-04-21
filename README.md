@@ -30,5 +30,5 @@ Code majd Download ZIP-re kattintva letölthető a projekt
 - a szoftver végül kiírja a reakcióidőt, és Toast üzenetben visszajelzést is ad gyorsaságunkról
 - a játék bármennyiszer újraindítható
 
-## Android Studio verzió
+# Android Studio verzió
 Az általam használt verzió az Android Studio HedgeHhg | 2023.1.1 Patch 2 volt
