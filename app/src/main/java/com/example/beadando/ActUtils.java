@@ -3,6 +3,7 @@ package com.example.beadando;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -34,13 +35,13 @@ public class ActUtils {
         }
     }
     public static void createShortToast(Context context, String message) {
-        toastMaker(context, message,Toast.LENGTH_SHORT);
+        toastMaker(context, message,Toast.LENGTH_SHORT, Gravity.BOTTOM);
     }
     public static void createLongToast(Context context, String message) {
-        toastMaker(context, message,Toast.LENGTH_LONG);
+        toastMaker(context, message,Toast.LENGTH_LONG, Gravity.TOP);
     }
 
-    private static void toastMaker(Context context, String message, int length){
+    private static void toastMaker(Context context, String message, int length, int location){
         // Cancel the current toast if it is still showing
         cancelToast();
 
@@ -57,12 +58,7 @@ public class ActUtils {
         currentToast.setDuration(length);
         currentToast.setView(layout);
 
-        text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancelToast();
-            }
-        });
+        currentToast.setGravity(Gravity.CENTER_VERTICAL | location, 0, 40);
 
         //and finally show the Toast
         currentToast.show();

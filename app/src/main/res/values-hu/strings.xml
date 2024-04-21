@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">beadando</string>
     <string name="logout">Kilépés</string>
     <string name="credits">Rólunk</string>
     <string name="main_menu">Főmenü</string>
@@ -14,9 +13,14 @@
     <string name="mode_auto">Auto mód</string>
     <string name="auto_mode_enabled">be</string>
     <string name="auto_mode_disabled">ki</string>
-    <string name="language">Nyelv váltása</string>
+    <string name="language">Nyelv</string>
     <string name="mode_light">Világos mód</string>
     <string name="mode_dark">Sötét mód</string>
     <string name="back_to_main_menu">Vissza a főmenübe</string>
     <string name="warning_auto_mode">Nem válthat manuálisan a témák között, amíg az automatikus mód be van kapcsolva!</string>
+    <string name="feedback_excellent">Melyik bolygóról jöttél?</string>
+    <string name="feedback_good">Jók a reflexeid!</string>
+    <string name="feedback_average">Átlagos teljesítmény</string>
+    <string name="bad">Ezen van még mit csiszolni!</string>
+    <string name="feedback_verybad">Remélem nincs jogosítványod!</string>
 </resources>

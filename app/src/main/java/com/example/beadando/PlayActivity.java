@@ -1,6 +1,6 @@
 package com.example.beadando;
 
-import static com.example.beadando.ActUtils.startActivityAndFinishCurrent;
+import static com.example.beadando.ActUtils.*;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -57,6 +57,7 @@ public class PlayActivity extends AppCompatActivity {
         playAgainBtn.setOnClickListener(v -> startGame());
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setOnTouchListeners() {
         //click is activated when user stop touching the screen, so we need to use onTouchListener
         playLayout.setOnTouchListener((v, event) -> {
@@ -90,11 +91,26 @@ public class PlayActivity extends AppCompatActivity {
                 Log.d("ReactionTime", "Lights out after " + reactionTime + " ms");
                 textviewGameOver.setText(getString(R.string.reactiontime) + ": "+reactionTime+" ms");
                 gameOverLayout.setVisibility(LinearLayout.VISIBLE);
+                showFeedback(reactionTime);
 
             }
             isGameActive = false;
         }
 
+    }
+
+    private void showFeedback(long reactionTime) {
+        if (reactionTime < 200) {
+            createShortToast(this, getString(R.string.feedback_excellent));
+        } else if (reactionTime < 300) {
+            createShortToast(this, getString(R.string.feedback_good));
+        } else if (reactionTime < 400) {
+            createShortToast(this, getString(R.string.feedback_average));
+        } else if (reactionTime < 500) {
+            createShortToast(this, getString(R.string.bad));
+        } else {
+            createShortToast(this, getString(R.string.feedback_verybad));
+        }
     }
 
     private void startGame() {

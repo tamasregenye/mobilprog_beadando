@@ -58,7 +58,7 @@
                     android:text="@string/play"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold">
                 </TextView>
 
@@ -100,7 +100,7 @@
                     android:text="@string/mode_auto"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/language"
                     android:textAlignment="center"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
                     android:layout_gravity="center_horizontal">
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mode_light"
                     android:textAlignment="center"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
                     android:layout_gravity="center_horizontal">
@@ -222,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/credits"
                     android:textAlignment="center"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/orange"
                     android:layout_gravity="center_horizontal">
@@ -265,7 +265,7 @@
                     android:text="@string/logout"
                     android:textAlignment="center"
                     android:textColor="@color/orange"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold">
                 </TextView>
 
