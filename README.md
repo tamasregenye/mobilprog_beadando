@@ -3,7 +3,8 @@
 **ReAction - reakcióidő mérő alkalmazás**
 
 Az alkalmazás célja: a felhasználó reakcióidejének mérése
-Bemutatóvideó az alkalmazásról használat közben: [link a videóhoz](https://www.youtube.com/watch?v=OydSBuQ9D5k)
+Bemutatóvideó az alkalmazásról használat közben:
+[link a videóhoz](https://www.youtube.com/watch?v=OydSBuQ9D5k)
   
 # Funkciók
 - reakcióidő mérése (erről bővebben később)
