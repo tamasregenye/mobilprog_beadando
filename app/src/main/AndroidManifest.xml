@@ -15,7 +15,7 @@
         <activity
             android:name=".PlayActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CreditsActivity"
             android:exported="false"

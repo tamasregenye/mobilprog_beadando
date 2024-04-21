@@ -47,6 +47,7 @@ public class ThemeManager {
     }
 
     protected static void setTheme(Context context, boolean isNightMode) {
+
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             setNightMode(true);

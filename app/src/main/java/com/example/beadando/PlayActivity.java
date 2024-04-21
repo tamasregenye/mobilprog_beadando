@@ -33,7 +33,6 @@ public class PlayActivity extends AppCompatActivity {
 
         initComponents();
         setOnclickListeners();
-        startGame();
     }
 
     private void initComponents() {
