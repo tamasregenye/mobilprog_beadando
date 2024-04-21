@@ -3,11 +3,13 @@
 **ReAction - reakcióidő mérő alkalmazás**
 
 Az alkalmazás célja: a felhasználó reakcióidejének mérése
-Bemutatóvideó az alkalmazásról használat közben:
 
+Bemutatóvideó az alkalmazásról használat közben: 
 [link a videóhoz](https://www.youtube.com/watch?v=OydSBuQ9D5k)
 
 [link a forráskódhoz (master branch)](https://github.com/tamasregenye/mobilprog_beadando/tree/master)
+
+Code majd Download ZIP-re kattintva letölthető a projekt
 
   
 # Funkciók
@@ -27,3 +29,6 @@ Bemutatóvideó az alkalmazásról használat közben:
 - ezután kell a képernyőhöz hozzáérni (ha túl korán koppintottunk akkor ezt is jelzi az alkalmazás)
 - a szoftver végül kiírja a reakcióidőt, és Toast üzenetben visszajelzést is ad gyorsaságunkról
 - a játék bármennyiszer újraindítható
+
+## Android Studio verzó
+Az általam használt verzó az Android Studio HedgeHhg | 2023.1.1 Patch 2 volt
