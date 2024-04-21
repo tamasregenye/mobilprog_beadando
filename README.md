@@ -4,7 +4,9 @@
 
 Az alkalmazás célja: a felhasználó reakcióidejének mérése
 Bemutatóvideó az alkalmazásról használat közben:
+
 [link a videóhoz](https://www.youtube.com/watch?v=OydSBuQ9D5k)
+
 [link a forráskódhoz (master branch)](https://github.com/tamasregenye/mobilprog_beadando/tree/master)
 
   
