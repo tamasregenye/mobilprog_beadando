@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,6 +35,7 @@ public class PlayActivity extends AppCompatActivity {
 
         initComponents();
         setOnclickListeners();
+        setOnTouchListeners();
         startGame();
     }
 
@@ -52,8 +54,18 @@ public class PlayActivity extends AppCompatActivity {
 
     private void setOnclickListeners() {
         mainMenuBtn.setOnClickListener(v -> goBackToMainMenu());
-        playLayout.setOnClickListener(v -> clickOnLayout());
         playAgainBtn.setOnClickListener(v -> startGame());
+    }
+
+    private void setOnTouchListeners() {
+        //click is activated when user stop touching the screen, so we need to use onTouchListener
+        playLayout.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                // Touch detected, perform action
+                clickOnLayout();
+            }
+            return true; // Consume the touch event
+        });
     }
 
     private void goBackToMainMenu() {
