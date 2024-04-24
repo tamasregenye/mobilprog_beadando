@@ -31,4 +31,4 @@ Code majd Download ZIP-re kattintva letölthető a projekt
 - a játék bármennyiszer újraindítható
 
 # Android Studio verzió
-Az általam használt verzió az Android Studio HedgeHhg | 2023.1.1 Patch 2 volt
+Az általam használt verzió az Android Studio Hedgehog | 2023.1.1 Patch 2 volt
