@@ -4,6 +4,8 @@
 
 Az alkalmazás célja: a felhasználó reakcióidejének mérése
 
+Bemutató prezentáció: [link a prezihez](https://drive.google.com/drive/u/0/folders/1dytREYnSxbcHcSXqu_8aeimxhqm1ID0h)
+
 Bemutatóvideó az alkalmazásról használat közben: 
 [link a videóhoz](https://www.youtube.com/watch?v=OydSBuQ9D5k)
 
