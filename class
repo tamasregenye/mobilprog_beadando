@@ -1,0 +1,77 @@
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText email,passwd1,passwd2;
+    Button button;
+
+    FirebaseAuth mAuth;
+    String regex="^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+
+    FirebaseDatabase database;
+    DatabaseReference dbref;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mAuth=FirebaseAuth.getInstance();
+        email=findViewById(R.id.text_email);
+        passwd1=findViewById(R.id.text_password);
+        passwd2=findViewById(R.id.text_password);
+        button=findViewById(R.id.button_login);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://gyakorlo-c966a-default-rtdb.europe-west1.firebasedatabase.app/");
+        dbref= database.getReference("users");
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Click();
+            }
+        });
+
+    }
+
+    void Click(){
+        if(passwd1.getText()==passwd2.getText() && email.getText().toString().trim().matches(regex)) {
+            User user = new User(email.getText().toString().trim(), passwd1.getText().toString());
+
+            mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), passwd1.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        dbref.child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid()).setValue(user);
+                        Toast.makeText(MainActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(MainActivity.this, "Error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        }
+        else{
+            Toast.makeText(MainActivity.this, "Error: Invalid Email or Password", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
